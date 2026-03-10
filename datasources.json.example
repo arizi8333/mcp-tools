@@ -1,0 +1,68 @@
+{
+  "databases": [
+    {
+      "name": "default",
+      "driver": "postgres",
+      "dsn": "postgresql://user:password@localhost:5432/dbname?sslmode=disable",
+      "enabled": true
+    },
+    {
+      "name": "analytics",
+      "driver": "mysql",
+      "dsn": "user:password@tcp(localhost:3306)/analytics",
+      "enabled": true
+    }
+  ],
+  "prometheus": [
+    {
+      "name": "default",
+      "url": "http://prometheus:9090",
+      "enabled": true
+    },
+    {
+      "name": "federated",
+      "url": "https://prometheus.example.com",
+      "enabled": false
+    }
+  ],
+  "redis": [
+    {
+      "name": "cache",
+      "host": "localhost",
+      "port": 6379,
+      "password": "",
+      "db": 0,
+      "enabled": false
+    },
+    {
+      "name": "sessions",
+      "host": "redis.example.com",
+      "port": 6379,
+      "password": "redis-password",
+      "db": 1,
+      "enabled": false
+    }
+  ],
+  "s3": [
+    {
+      "name": "logs-storage",
+      "endpoint": "s3.amazonaws.com",
+      "region": "us-east-1",
+      "access_key_id": "YOUR_ACCESS_KEY",
+      "secret_access_key": "YOUR_SECRET_KEY",
+      "bucket": "logs-bucket",
+      "use_ssl": true,
+      "enabled": false
+    },
+    {
+      "name": "minio-local",
+      "endpoint": "minio:9000",
+      "region": "us-east-1",
+      "access_key_id": "minioadmin",
+      "secret_access_key": "minioadmin",
+      "bucket": "backups",
+      "use_ssl": false,
+      "enabled": false
+    }
+  ]
+}

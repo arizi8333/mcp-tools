@@ -1,0 +1,18 @@
+services:
+  mcp-server:
+    # Removed the build: . line
+    image: mcp-server:latest
+    container_name: mcp-server
+    restart: unless-stopped
+    ports:
+      - "8180:8180"
+    environment:
+      - SERVER_NAME=Docker MCP Server
+      - LOG_LEVEL=info
+      - MCP_TRANSPORT=http
+      - PORT=8180
+      - HOST=psops.pcsindonesia.com
+      - PUBLIC_URL=
+      - DATASOURCES_CONFIG=/app/datasources.json
+    volumes:
+      - ./datasources.json:/app/datasources.json
